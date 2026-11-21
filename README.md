@@ -12,6 +12,18 @@
 
 ---
 
+## 🚀 Downloads & Releases (Windows 10 / 11 64-bit)
+
+En son kararlı sürümü doğrudan GitHub Releases üzerinden indirebilirsiniz:
+👉 **[NEXA AI v1.0.0 Release Sayfası](https://github.com/keremkose61/nexa-ai/releases/tag/v1.0.0)**
+
+| Dosya | Boyut | Açıklama |
+| :--- | :--- | :--- |
+| 📦 **[NexaAI-v1.0.0-windows-x64.zip](https://github.com/keremkose61/nexa-ai/releases/download/v1.0.0/NexaAI-v1.0.0-windows-x64.zip)** | ~195 MB | **Tavsiye Edilen Tam Paket**: Java 21 gömülü runtime, `NexaAI.exe`, Spring Boot backend ve tüm bağımlılıklar dahildir. Java kurulumu gerektirmez. |
+| ⚡ **[NexaAI.exe](https://github.com/keremkose61/nexa-ai/releases/download/v1.0.0/NexaAI.exe)** | ~448 KB | 64-bit Windows yürütülebilir launcher dosyası. |
+
+---
+
 ## 📖 Overview
 
 **NEXA AI** is a state-of-the-art enterprise desktop AI assistant engineered in modern Java 21. Combining a sleek, responsive JavaFX desktop client with a robust Spring Boot 3 microservices backend, NEXA AI delivers multi-provider LLM orchestration, intelligent document extraction, workspace management, and enterprise-grade cryptographic security.
