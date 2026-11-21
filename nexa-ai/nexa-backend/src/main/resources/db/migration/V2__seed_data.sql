@@ -16,13 +16,13 @@ ON DUPLICATE KEY UPDATE name = VALUES(name);
 -- --------------------------------------------------------
 -- 2. SEED DEFAULT ADMIN USER
 -- Credentials: admin@nexa.ai / Admin123!
--- BCrypt: $2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy
+-- BCrypt: $2a$10$.1tpIETc1CFp3hYHJZXv8u42F73HQmVRH3QWkUVsXNnKgMcE99IZO
 -- --------------------------------------------------------
 INSERT INTO users (id, email, password_hash, display_name, avatar_url, enabled, email_verified, last_login_at, created_at, updated_at)
 VALUES 
     (UNHEX(REPLACE('00000000-0000-0000-0000-000000000010', '-', '')), 
      'admin@nexa.ai', 
-     '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 
+     '$2a$10$.1tpIETc1CFp3hYHJZXv8u42F73HQmVRH3QWkUVsXNnKgMcE99IZO', 
      'NEXA Administrator', 
      NULL, 
      TRUE, 
@@ -30,7 +30,7 @@ VALUES
      NULL, 
      CURRENT_TIMESTAMP, 
      CURRENT_TIMESTAMP)
-ON DUPLICATE KEY UPDATE email = VALUES(email);
+ON DUPLICATE KEY UPDATE email = VALUES(email), password_hash = VALUES(password_hash);
 
 -- --------------------------------------------------------
 -- 3. ASSIGN ADMIN AND USER ROLES TO DEFAULT ADMIN

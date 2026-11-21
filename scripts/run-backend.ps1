@@ -1,9 +1,10 @@
-﻿# NEXA AI — Backend Startup Script
+﻿# NEXA AI — Backend Startup Script (Native Windows - No Docker Required)
 $env:JAVA_HOME = "C:\Users\Kose\.gradle\jdks\eclipse_adoptium-21-amd64-windows.2"
 $env:PATH = "$env:JAVA_HOME\bin;" + $env:PATH
 
 Write-Host "=================================================" -ForegroundColor Cyan
-Write-Host "   NEXA AI — Enterprise Backend Server Starting   " -ForegroundColor Cyan
+Write-Host "   NEXA AI — Native Backend Server Starting      " -ForegroundColor Cyan
+Write-Host "   Database: Native Windows MySQL 8.x (Wamp)      " -ForegroundColor Cyan
 Write-Host "=================================================" -ForegroundColor Cyan
 
 $jarPath = "c:\Users\Kose\.gemini\antigravity\scratch\java AI\nexa-ai\nexa-backend\target\nexa-backend-1.0.0-SNAPSHOT.jar"

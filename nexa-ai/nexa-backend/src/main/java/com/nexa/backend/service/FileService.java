@@ -11,6 +11,7 @@ import com.nexa.common.exception.ErrorCode;
 import com.nexa.common.exception.NexaException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,6 +36,7 @@ public class FileService {
     private final UploadedFileRepository fileRepository;
     private final UserRepository userRepository;
     private final ProjectRepository projectRepository;
+    @Qualifier("documentExecutor")
     private final Executor documentExecutor;
 
     @Value("${nexa.upload.dir:#{systemProperties['user.home'] + '/.nexa/uploads'}}")

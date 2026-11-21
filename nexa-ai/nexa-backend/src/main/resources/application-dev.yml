@@ -6,8 +6,8 @@ spring:
   datasource:
     # Default: Local MySQL (can override with H2: jdbc:h2:mem:nexa_dev;DB_CLOSE_DELAY=-1;MODE=MySQL)
     url: ${SPRING_DATASOURCE_URL:jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:nexa_ai}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8}
-    username: ${DB_USER:root}
-    password: ${DB_PASSWORD:rootpassword}
+    username: ${DB_USER:${NEXA_DB_USERNAME:root}}
+    password: ${DB_PASSWORD:${NEXA_DB_PASSWORD:}}
     driver-class-name: ${SPRING_DATASOURCE_DRIVER:com.mysql.cj.jdbc.Driver}
     hikari:
       pool-name: NexaHikariCP-Dev

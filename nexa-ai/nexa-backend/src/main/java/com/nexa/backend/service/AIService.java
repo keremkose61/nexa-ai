@@ -21,6 +21,7 @@ import com.nexa.common.exception.NexaException;
 import com.nexa.security.crypto.ApiKeyEncryptor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,6 +44,7 @@ public class AIService {
     private final ContextManager contextManager;
     private final MessageService messageService;
     private final SimpMessagingTemplate messagingTemplate;
+    @Qualifier("aiExecutor")
     private final Executor aiExecutor;
 
     @Transactional(readOnly = true)
