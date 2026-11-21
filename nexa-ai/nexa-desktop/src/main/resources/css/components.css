@@ -1,0 +1,287 @@
+/* ========================================================
+   NEXA AI — Reusable Components Stylesheet
+   Buttons, Inputs, Cards, Badges, Metrics, Scrollbars
+   ======================================================== */
+
+/* Primary Buttons */
+.btn-primary {
+    -fx-background-color: -nexa-primary;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-padding: 10 18 10 18;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.btn-primary:hover {
+    -fx-background-color: -nexa-primary-hover;
+}
+
+.btn-primary:disabled {
+    -fx-opacity: 0.55;
+    -fx-cursor: default;
+}
+
+/* Secondary Buttons */
+.btn-secondary {
+    -fx-background-color: -nexa-surface;
+    -fx-text-fill: -nexa-text;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-font-size: 13px;
+    -fx-padding: 9 16 9 16;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: -nexa-surface-hover;
+}
+
+.btn-secondary-sm {
+    -fx-background-color: -nexa-surface;
+    -fx-text-fill: -nexa-text;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 11px;
+    -fx-padding: 4 10 4 10;
+    -fx-cursor: hand;
+}
+
+.btn-secondary-sm:hover {
+    -fx-background-color: -nexa-surface-hover;
+}
+
+/* Action Icon Buttons */
+.btn-icon {
+    -fx-background-color: transparent;
+    -fx-text-fill: -nexa-text-muted;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 6 10 6 10;
+    -fx-cursor: hand;
+}
+
+.btn-icon:hover {
+    -fx-background-color: -nexa-surface-hover;
+    -fx-text-fill: -nexa-text;
+}
+
+/* Text Inputs & Password Fields */
+.text-field, .password-field {
+    -fx-background-color: -nexa-input-bg;
+    -fx-text-fill: -nexa-text;
+    -fx-prompt-text-fill: -nexa-text-muted;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 9 12 9 12;
+    -fx-font-size: 13px;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: -nexa-primary;
+    -fx-background-color: -nexa-input-bg;
+}
+
+/* Text Area */
+.text-area {
+    -fx-background-color: -nexa-input-bg;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-font-size: 13px;
+}
+
+.text-area:focused {
+    -fx-border-color: -nexa-primary;
+}
+
+.text-area .content {
+    -fx-background-color: -nexa-input-bg;
+    -fx-background-radius: 8px;
+    -fx-padding: 8 10 8 10;
+}
+
+.text-area .text {
+    -fx-fill: -nexa-text;
+}
+
+/* Combo Box */
+.combo-box {
+    -fx-background-color: -nexa-surface;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 4 8 4 8;
+    -fx-cursor: hand;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: -nexa-text;
+    -fx-background-color: transparent;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: -nexa-surface;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.combo-box-popup .list-cell {
+    -fx-text-fill: -nexa-text;
+    -fx-padding: 6 12 6 12;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: -nexa-surface-hover;
+}
+
+/* Hyperlinks */
+.hyperlink {
+    -fx-text-fill: -nexa-primary;
+    -fx-underline: false;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.hyperlink:hover {
+    -fx-underline: true;
+}
+
+/* Badges */
+.badge-primary {
+    -fx-background-color: rgba(113, 103, 248, 0.15);
+    -fx-text-fill: -nexa-primary;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 8 3 8;
+    -fx-background-radius: 12px;
+}
+
+.badge-secondary {
+    -fx-background-color: rgba(34, 199, 169, 0.15);
+    -fx-text-fill: -nexa-secondary;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 8 3 8;
+    -fx-background-radius: 12px;
+}
+
+/* Metric Card */
+.metric-card {
+    -fx-background-color: -nexa-surface;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-padding: 16;
+}
+
+.metric-title {
+    -fx-text-fill: -nexa-text-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+}
+
+.metric-value {
+    -fx-text-fill: -nexa-text;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+/* Quick Action Card */
+.action-card {
+    -fx-background-color: -nexa-surface;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-padding: 16;
+    -fx-cursor: hand;
+}
+
+.action-card:hover {
+    -fx-background-color: -nexa-surface-hover;
+    -fx-border-color: -nexa-primary;
+}
+
+.action-card-title {
+    -fx-text-fill: -nexa-text;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.action-card-desc {
+    -fx-text-fill: -nexa-text-muted;
+    -fx-font-size: 12px;
+}
+
+/* Recent Item Card */
+.recent-item-card {
+    -fx-background-color: -nexa-surface;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.recent-item-card:hover {
+    -fx-background-color: -nexa-surface-hover;
+}
+
+.recent-item-title {
+    -fx-text-fill: -nexa-text;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.recent-item-meta {
+    -fx-text-fill: -nexa-text-muted;
+    -fx-font-size: 11px;
+}
+
+/* ScrollBar Styling */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.scroll-pane .corner {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+    -fx-background-color: -nexa-border;
+    -fx-background-radius: 4px;
+}
+
+.scroll-bar:vertical .thumb:hover, .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: -nexa-text-muted;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}

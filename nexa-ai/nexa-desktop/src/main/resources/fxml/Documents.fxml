@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fitToWidth="true" styleClass="scroll-pane">
+    <VBox spacing="20">
+        <padding>
+            <Insets top="24" right="32" bottom="32" left="32" />
+        </padding>
+
+        <HBox alignment="CENTER_LEFT" spacing="16">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="%nav.documents" styleClass="section-title" />
+                <Label text="Upload, parse, and semantically index documents for high-speed RAG retrieval." styleClass="text-muted" />
+            </VBox>
+            <Button text="＋ Upload Document" styleClass="btn-primary" />
+        </HBox>
+
+        <!-- Search Bar -->
+        <HBox spacing="12" alignment="CENTER_LEFT">
+            <TextField promptText="Search indexed documents, keywords, or vector contents..." HBox.hgrow="ALWAYS" />
+            <Button text="Filter" styleClass="btn-secondary" />
+        </HBox>
+
+        <!-- Document List Container -->
+        <VBox spacing="10" styleClass="card-pane" style="-fx-padding: 20;">
+            <Label text="Indexed Knowledge Base" style="-fx-font-weight: bold; -fx-font-size: 14px;" styleClass="text-main" />
+
+            <HBox alignment="CENTER_LEFT" spacing="12" styleClass="recent-item-card" style="-fx-padding: 12;">
+                <Label text="📄" style="-fx-font-size: 20px;" />
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label text="Enterprise_AI_Architecture_Overview.pdf" style="-fx-font-weight: bold;" styleClass="text-main" />
+                    <Label text="PDF • 4.2 MB • 24 Pages • 14,200 Embeddings • Ready" styleClass="text-muted" style="-fx-font-size: 11px;" />
+                </VBox>
+                <Button text="Analyze" styleClass="btn-secondary-sm" />
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="12" styleClass="recent-item-card" style="-fx-padding: 12;">
+                <Label text="📄" style="-fx-font-size: 20px;" />
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label text="Quarterly_Financial_Report_Q3.docx" style="-fx-font-weight: bold;" styleClass="text-main" />
+                    <Label text="DOCX • 1.8 MB • 18 Pages • 6,100 Embeddings • Ready" styleClass="text-muted" style="-fx-font-size: 11px;" />
+                </VBox>
+                <Button text="Analyze" styleClass="btn-secondary-sm" />
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="12" styleClass="recent-item-card" style="-fx-padding: 12;">
+                <Label text="📄" style="-fx-font-size: 20px;" />
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label text="System_Security_Compliance_v2.pdf" style="-fx-font-weight: bold;" styleClass="text-main" />
+                    <Label text="PDF • 980 KB • 12 Pages • 3,450 Embeddings • Ready" styleClass="text-muted" style="-fx-font-size: 11px;" />
+                </VBox>
+                <Button text="Analyze" styleClass="btn-secondary-sm" />
+            </HBox>
+        </VBox>
+    </VBox>
+</ScrollPane>

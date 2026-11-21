@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fitToWidth="true" styleClass="scroll-pane">
+    <VBox spacing="20">
+        <padding>
+            <Insets top="24" right="32" bottom="32" left="32" />
+        </padding>
+
+        <HBox alignment="CENTER_LEFT" spacing="16">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="%nav.admin" styleClass="section-title" />
+                <Label text="Manage AI Providers, enterprise users, audit logs, and rate limit policies." styleClass="text-muted" />
+            </VBox>
+            <Button text="＋ Add AI Provider" styleClass="btn-primary" />
+        </HBox>
+
+        <!-- AI Providers List -->
+        <VBox styleClass="card-pane" spacing="12" style="-fx-padding: 20;">
+            <Label text="Configured AI Providers" style="-fx-font-weight: bold; -fx-font-size: 14px;" styleClass="text-main" />
+
+            <HBox alignment="CENTER_LEFT" spacing="12" styleClass="recent-item-card" style="-fx-padding: 12;">
+                <Label text="🤖" style="-fx-font-size: 20px;" />
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label text="OpenAI (Default Provider)" style="-fx-font-weight: bold;" styleClass="text-main" />
+                    <Label text="API Key: sk-proj-...8a1F • Base URL: https://api.openai.com/v1 • Status: Healthy" styleClass="text-muted" style="-fx-font-size: 11px;" />
+                </VBox>
+                <Button text="Test" styleClass="btn-secondary-sm" />
+                <Button text="Edit" styleClass="btn-secondary-sm" />
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="12" styleClass="recent-item-card" style="-fx-padding: 12;">
+                <Label text="🤖" style="-fx-font-size: 20px;" />
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label text="Anthropic Claude" style="-fx-font-weight: bold;" styleClass="text-main" />
+                    <Label text="API Key: sk-ant-...5k2E • Base URL: https://api.anthropic.com/v1 • Status: Healthy" styleClass="text-muted" style="-fx-font-size: 11px;" />
+                </VBox>
+                <Button text="Test" styleClass="btn-secondary-sm" />
+                <Button text="Edit" styleClass="btn-secondary-sm" />
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="12" styleClass="recent-item-card" style="-fx-padding: 12;">
+                <Label text="🤖" style="-fx-font-size: 20px;" />
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label text="Local Ollama Gateway" style="-fx-font-weight: bold;" styleClass="text-main" />
+                    <Label text="No Auth • Base URL: http://localhost:11434 • Status: Connected" styleClass="text-muted" style="-fx-font-size: 11px;" />
+                </VBox>
+                <Button text="Test" styleClass="btn-secondary-sm" />
+                <Button text="Edit" styleClass="btn-secondary-sm" />
+            </HBox>
+        </VBox>
+    </VBox>
+</ScrollPane>

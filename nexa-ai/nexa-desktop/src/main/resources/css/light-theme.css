@@ -1,0 +1,222 @@
+/* ========================================================
+   NEXA AI — Clean Light Theme
+   Background: #F5F6FA | Sidebar: #FFFFFF | Surface: #FFFFFF
+   Primary: #6558E8    | Text: #171923    | Muted: #73798A
+   ======================================================== */
+
+.root {
+    -fx-base: #F5F6FA;
+    -fx-background: #F5F6FA;
+    -fx-background-color: #F5F6FA;
+    -fx-control-inner-background: #FFFFFF;
+    -fx-text-base-color: #171923;
+
+    -nexa-bg: #F5F6FA;
+    -nexa-sidebar: #FFFFFF;
+    -nexa-surface: #FFFFFF;
+    -nexa-surface-hover: #EDF0F7;
+    -nexa-primary: #6558E8;
+    -nexa-primary-hover: #5345DB;
+    -nexa-secondary: #0D9488;
+    -nexa-text: #171923;
+    -nexa-text-muted: #73798A;
+    -nexa-border: #E2E8F0;
+    -nexa-input-bg: #F8FAFC;
+    -nexa-danger: #DC2626;
+}
+
+/* Backgrounds */
+.main-window {
+    -fx-background-color: -nexa-bg;
+}
+
+.sidebar {
+    -fx-background-color: -nexa-sidebar;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 0 1 0 0;
+}
+
+.top-bar {
+    -fx-background-color: -nexa-sidebar;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 0 0 1 0;
+}
+
+.content-pane {
+    -fx-background-color: -nexa-bg;
+}
+
+.card-pane {
+    -fx-background-color: -nexa-surface;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+.login-card {
+    -fx-background-color: -nexa-surface;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 14px;
+    -fx-background-radius: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 20, 0, 0, 6);
+}
+
+/* Sidebar navigation buttons */
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -nexa-text-muted;
+    -fx-font-size: 13px;
+    -fx-font-weight: normal;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 14 10 14;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: -nexa-surface-hover;
+    -fx-text-fill: -nexa-text;
+}
+
+.sidebar-button-active {
+    -fx-background-color: #EDEBFD;
+    -fx-text-fill: -nexa-primary;
+    -fx-font-weight: bold;
+    -fx-border-color: -nexa-primary;
+    -fx-border-width: 0 0 0 3px;
+}
+
+/* Text styles */
+.text-main {
+    -fx-text-fill: -nexa-text;
+}
+
+.text-muted {
+    -fx-text-fill: -nexa-text-muted;
+}
+
+.section-title {
+    -fx-text-fill: -nexa-text;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* Chat bubble styling */
+.message-bubble-user {
+    -fx-background-color: -nexa-primary;
+    -fx-background-radius: 16px 16px 4px 16px;
+    -fx-effect: dropshadow(gaussian, rgba(101, 88, 232, 0.2), 6, 0, 0, 2);
+}
+
+.message-bubble-user .bubble-text {
+    -fx-fill: #FFFFFF;
+}
+
+.message-bubble-user .bubble-text-bold {
+    -fx-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.message-bubble-user .bubble-role-user {
+    -fx-text-fill: #E0E7FF;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.message-bubble-assistant {
+    -fx-background-color: -nexa-surface;
+    -fx-border-color: -nexa-border;
+    -fx-border-width: 1px;
+    -fx-background-radius: 16px 16px 16px 4px;
+    -fx-border-radius: 16px 16px 16px 4px;
+}
+
+.message-bubble-assistant .bubble-text {
+    -fx-fill: -nexa-text;
+}
+
+.message-bubble-assistant .bubble-text-bold {
+    -fx-fill: #0F172A;
+    -fx-font-weight: bold;
+}
+
+.bubble-role-assistant {
+    -fx-text-fill: -nexa-primary;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.bubble-model-badge {
+    -fx-background-color: #EDEBFD;
+    -fx-text-fill: -nexa-primary;
+    -fx-font-size: 10px;
+    -fx-padding: 2 6 2 6;
+    -fx-background-radius: 4px;
+}
+
+.bubble-text-inline-code {
+    -fx-fill: #0D9488;
+    -fx-font-family: 'Consolas', 'Courier New', monospace;
+    -fx-font-weight: bold;
+}
+
+.bubble-text-code-block {
+    -fx-fill: #1E293B;
+    -fx-font-family: 'Consolas', 'Courier New', monospace;
+    -fx-font-size: 12px;
+}
+
+.bubble-timestamp {
+    -fx-text-fill: -nexa-text-muted;
+    -fx-font-size: 10px;
+}
+
+.bubble-copy-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -nexa-text-muted;
+    -fx-font-size: 10px;
+    -fx-cursor: hand;
+    -fx-padding: 2 6 2 6;
+    -fx-border-color: -nexa-border;
+    -fx-border-radius: 4px;
+}
+
+.bubble-copy-button:hover {
+    -fx-background-color: -nexa-surface-hover;
+    -fx-text-fill: -nexa-text;
+}
+
+/* Chat sidebar list */
+.conv-sidebar-item {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.conv-sidebar-item:hover {
+    -fx-background-color: -nexa-surface-hover;
+}
+
+.conv-sidebar-item-active {
+    -fx-background-color: #EDEBFD;
+    -fx-border-color: #DDD6FE;
+    -fx-border-width: 1px;
+}
+
+.conv-item-title {
+    -fx-text-fill: -nexa-text;
+    -fx-font-size: 12px;
+}
+
+.conv-delete-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: -nexa-text-muted;
+    -fx-font-size: 11px;
+    -fx-cursor: hand;
+}
+
+.conv-delete-btn:hover {
+    -fx-text-fill: -nexa-danger;
+}

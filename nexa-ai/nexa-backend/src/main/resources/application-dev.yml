@@ -1,0 +1,59 @@
+# Development Profile Configuration
+server:
+  port: ${PORT:8080}
+
+spring:
+  datasource:
+    # Default: Local MySQL (can override with H2: jdbc:h2:mem:nexa_dev;DB_CLOSE_DELAY=-1;MODE=MySQL)
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:nexa_ai}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:rootpassword}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER:com.mysql.cj.jdbc.Driver}
+    hikari:
+      pool-name: NexaHikariCP-Dev
+      minimum-idle: 2
+      maximum-pool-size: 10
+      idle-timeout: 60000
+      max-lifetime: 600000
+      connection-timeout: 20000
+
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 0
+    locations: classpath:db/migration
+
+# Actuator: Detailed in development
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+# Verbose Logging for Development
+logging:
+  level:
+    root: INFO
+    com.nexa: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.hibernate.type.descriptor.sql: TRACE
+    org.flywaydb: DEBUG
+    com.zaxxer.hikari: DEBUG

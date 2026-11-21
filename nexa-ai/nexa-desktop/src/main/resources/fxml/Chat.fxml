@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.nexa.desktop.controller.ChatController"
+            styleClass="main-window">
+
+    <!-- Left Conversation Drawer -->
+    <left>
+        <VBox prefWidth="260.0" spacing="12" styleClass="sidebar">
+            <padding>
+                <Insets top="16" right="12" bottom="16" left="12" />
+            </padding>
+
+            <!-- New Chat Button -->
+            <Button fx:id="btnNewChat" text="＋ %chat.new_chat" onAction="#handleNewChat"
+                    maxWidth="Infinity" styleClass="btn-primary" />
+
+            <!-- Search Field -->
+            <TextField fx:id="searchConvField" promptText="%chat.search_conv" />
+
+            <!-- Conversation History List -->
+            <ScrollPane fx:id="convListScrollPane" fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="scroll-pane">
+                <VBox fx:id="convListContainer" spacing="4" />
+            </ScrollPane>
+        </VBox>
+    </left>
+
+    <!-- Main Chat Workspace -->
+    <center>
+        <BorderPane>
+            <!-- Chat Header Bar -->
+            <top>
+                <HBox alignment="CENTER_LEFT" spacing="12" styleClass="top-bar" prefHeight="50.0">
+                    <padding>
+                        <Insets top="8" right="20" bottom="8" left="20" />
+                    </padding>
+
+                    <!-- Active Conversation Title -->
+                    <Label fx:id="currentChatTitle" text="New Chat" style="-fx-font-size: 14px; -fx-font-weight: bold;" styleClass="text-main" />
+
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <!-- Model Selector -->
+                    <ComboBox fx:id="modelSelector" prefWidth="170" promptText="%chat.select_model" />
+
+                    <!-- Action Buttons -->
+                    <Button fx:id="btnClearChat" text="%chat.clear" onAction="#handleClearChat" styleClass="btn-secondary-sm" />
+                    <Button fx:id="btnExportChat" text="%chat.export" onAction="#handleExportChat" styleClass="btn-secondary-sm" />
+                </HBox>
+            </top>
+
+            <!-- Chat Messages Scroll Area -->
+            <center>
+                <StackPane>
+                    <ScrollPane fx:id="chatScrollPane" fitToWidth="true" styleClass="scroll-pane">
+                        <VBox fx:id="messageThreadContainer" spacing="14">
+                            <padding>
+                                <Insets top="16" right="20" bottom="16" left="20" />
+                            </padding>
+                        </VBox>
+                    </ScrollPane>
+
+                    <ProgressIndicator fx:id="chatLoadingIndicator" maxWidth="32" maxHeight="32" visible="false" />
+                </StackPane>
+            </center>
+
+            <!-- Bottom Input Area -->
+            <bottom>
+                <VBox spacing="8" styleClass="card-pane" style="-fx-border-width: 1 0 0 0; -fx-border-radius: 0; -fx-background-radius: 0;">
+                    <padding>
+                        <Insets top="12" right="20" bottom="16" left="20" />
+                    </padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <!-- Multi-line auto-resizing text editor -->
+                        <TextArea fx:id="messageInputArea" promptText="%chat.input_placeholder"
+                                  wrapText="true" prefRowCount="3" maxHeight="140"
+                                  HBox.hgrow="ALWAYS" />
+
+                        <!-- Send Button -->
+                        <Button fx:id="btnSend" text="➤ %chat.send" onAction="#handleSendMessage"
+                                prefHeight="54" prefWidth="90" styleClass="btn-primary" />
+                    </HBox>
+
+                    <!-- Input Footer Status / Token Estimator -->
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label text="Shift+Enter for newline • Markdown supported" styleClass="text-muted" style="-fx-font-size: 11px;" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="tokenEstimateLabel" text="0 %chat.tokens_estimate" styleClass="text-muted" style="-fx-font-size: 11px;" />
+                    </HBox>
+                </VBox>
+            </bottom>
+        </BorderPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.nexa.desktop.controller.LoginController"
+           styleClass="main-window"
+           prefWidth="960.0" prefHeight="650.0">
+
+    <BorderPane>
+        <!-- Top bar with language & theme controls -->
+        <top>
+            <HBox alignment="CENTER_RIGHT" spacing="12" BorderPane.alignment="CENTER">
+                <padding>
+                    <Insets top="16" right="24" bottom="8" left="24"/>
+                </padding>
+                <ComboBox fx:id="languageSelector" prefWidth="140" promptText="Language" />
+                <Button fx:id="themeToggleButton" text="🌓" onAction="#toggleTheme" styleClass="btn-icon" />
+            </HBox>
+        </top>
+
+        <!-- Center Login Card -->
+        <center>
+            <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+                <VBox alignment="CENTER" spacing="20" maxWidth="420" styleClass="login-card">
+                    <padding>
+                        <Insets top="36" right="36" bottom="36" left="36"/>
+                    </padding>
+
+                    <!-- Logo & Branding -->
+                    <VBox alignment="CENTER" spacing="6">
+                        <StackPane prefWidth="54" prefHeight="54" maxWidth="54" maxHeight="54">
+                            <Circle radius="27" fill="#7167F8" />
+                            <Label text="NX" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" />
+                        </StackPane>
+                        <Label text="NEXA AI" style="-fx-font-size: 24px; -fx-font-weight: bold;" styleClass="text-main" />
+                        <Label text="%auth.sign_in_subtitle" styleClass="text-muted" style="-fx-font-size: 12px;" wrapText="true" textAlignment="CENTER" />
+                    </VBox>
+
+                    <!-- Error display -->
+                    <Label fx:id="errorLabel" styleClass="text-muted"
+                           style="-fx-text-fill: #EF4444; -fx-background-color: rgba(239, 68, 68, 0.12); -fx-padding: 8 12 8 12; -fx-background-radius: 6px; -fx-font-size: 12px;"
+                           wrapText="true" maxWidth="Infinity" alignment="CENTER" />
+
+                    <!-- Form Fields -->
+                    <VBox spacing="14" maxWidth="Infinity">
+                        <!-- Display Name (for Register) -->
+                        <VBox fx:id="displayNameBox" spacing="6">
+                            <Label text="%auth.display_name" styleClass="text-muted" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                            <TextField fx:id="displayNameField" promptText="%auth.display_name_placeholder" />
+                        </VBox>
+
+                        <!-- Email -->
+                        <VBox spacing="6">
+                            <Label text="%auth.email" styleClass="text-muted" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                            <TextField fx:id="emailField" promptText="%auth.email_placeholder" />
+                        </VBox>
+
+                        <!-- Password -->
+                        <VBox spacing="6">
+                            <Label text="%auth.password" styleClass="text-muted" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+                            <PasswordField fx:id="passwordField" promptText="%auth.password_placeholder" />
+                        </VBox>
+                    </VBox>
+
+                    <!-- Submit Button & Spinner -->
+                    <StackPane maxWidth="Infinity">
+                        <Button fx:id="submitButton" text="%auth.sign_in_btn" onAction="#handleSubmit"
+                                maxWidth="Infinity" styleClass="btn-primary" prefHeight="42" />
+                        <ProgressIndicator fx:id="progressIndicator" maxWidth="24" maxHeight="24" />
+                    </StackPane>
+
+                    <!-- Secondary Links -->
+                    <VBox alignment="CENTER" spacing="8">
+                        <Hyperlink fx:id="toggleModeLink" text="%auth.no_account" onAction="#toggleMode" style="-fx-font-size: 12px;" />
+                        <Hyperlink fx:id="demoLoginLink" text="%auth.demo_login" onAction="#handleDemoLogin"
+                                   style="-fx-font-size: 11px; -fx-text-fill: -nexa-secondary;" />
+                    </VBox>
+                </VBox>
+            </VBox>
+        </center>
+
+        <!-- Footer -->
+        <bottom>
+            <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+                <padding>
+                    <Insets bottom="16" />
+                </padding>
+                <Label text="%app.copyright" styleClass="text-muted" style="-fx-font-size: 11px;" />
+            </HBox>
+        </bottom>
+    </BorderPane>
+
+</StackPane>

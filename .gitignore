@@ -1,0 +1,59 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+target/
+*.iml
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.m2/
+tools/
+Corretto*
+*.zip
+
+# IDE
+.idea/
+*.iws
+*.ipr
+.vscode/
+.settings/
+.classpath
+.project
+
+# Spring Boot
+*.log
+logs/
+
+# Environment
+.env
+*.env
+.env.*
+
+# Secrets
+**/application-local.yml
+**/application-secret.yml
+**/secrets.properties
+
+# Uploads
+uploads/
+**/uploads/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker
+docker/volumes/
+
+# jpackage / distribution
+dist/
+release/
+*.msi
+*.exe
+*.dmg
+*.deb

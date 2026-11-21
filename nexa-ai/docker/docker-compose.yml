@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  # ----------------------------------------------------
+  # MySQL 8.0 Database Service
+  # ----------------------------------------------------
+  mysql:
+    image: mysql:8.0
+    container_name: nexa-mysql
+    restart: unless-stopped
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --max_connections=200
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: nexa_ai
+      MYSQL_USER: nexa
+      MYSQL_PASSWORD: nexapassword
+      TZ: UTC
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - nexa-net
+
+  # ----------------------------------------------------
+  # NEXA AI Spring Boot Backend Service
+  # ----------------------------------------------------
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    container_name: nexa-backend
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: nexa_ai
+      DB_USER: root
+      DB_PASSWORD: rootpassword
+      JWT_SECRET: nexaai-production-super-secret-key-must-be-at-least-256-bits-long-for-hs256
+      ENCRYPTION_KEY: nexaai-encryption-key-32-bytes!!
+      UPLOAD_DIR: /app/uploads
+      JAVA_OPTS: "-Xms512m -Xmx1024m -XX:+UseG1GC -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
+    ports:
+      - "8080:8080"
+    volumes:
+      - nexa_uploads:/app/uploads
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/actuator/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 45s
+    networks:
+      - nexa-net
+
+volumes:
+  mysql_data:
+    name: nexa_mysql_data
+    driver: local
+  nexa_uploads:
+    name: nexa_app_uploads
+    driver: local
+
+networks:
+  nexa-net:
+    name: nexa-network
+    driver: bridge
